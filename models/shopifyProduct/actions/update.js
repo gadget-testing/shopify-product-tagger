@@ -12,8 +12,12 @@ export async function run({ params, record, logger, api }) {
 /**
  * @param { UpdateShopifyProductActionContext } context
  */
-export async function onSuccess({ params, record, logger, api }) {
-  // Your logic goes here
+export async function onSuccess({ params, record, logger, api, connections }) {
+  if (record.changed('body')) {
+    const newTags = record.body.split(" ").slice(0, 10);
+    logger.info({ newTags, productId: params.id }, "setting new product tags");
+    await connections.shopify.current.product.update(params.id, { tags: newTags })
+  }
 };
 
 /** @type { ActionOptions } */
