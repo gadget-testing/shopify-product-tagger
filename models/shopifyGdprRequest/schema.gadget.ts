@@ -4,13 +4,17 @@ import type { GadgetModel } from "gadget-server";
 // View and edit your model in the Gadget editor at https://myapp.gadget.dev/edit
 export const schema: GadgetModel = {
   type: "gadget/model-schema/v1",
+  shopifyModel: "gdprrequest",
   fields: {
     createdAt: { type: "DateTime", validations: [{ type: "required" }] },
     id: { type: "ID", validations: [{ type: "required" }, { type: "unique" }] },
-    roles: { type: "RoleAssignments", default: ["unauthenticated"] },
-    shop: { type: "BelongsTo", relatedModel: "shopifyShop" },
-    shopifySID: { type: "String" },
-    state: { type: "RecordState", validations: [{ type: "required" }] },
+    payload: { type: "JSON" },
+    shop: { type: "BelongsTo", validations: [{ type: "required" }], relatedModel: "shopifyShop" },
+    topic: {
+      type: "Enum",
+      validations: [{ type: "required" }],
+      options: ["customers/data_request", "customers/redact", "shop/redact"],
+    },
     updatedAt: { type: "DateTime", validations: [{ type: "required" }] },
   },
 };

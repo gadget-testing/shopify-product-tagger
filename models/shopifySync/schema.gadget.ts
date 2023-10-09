@@ -4,13 +4,18 @@ import type { GadgetModel } from "gadget-server";
 // View and edit your model in the Gadget editor at https://myapp.gadget.dev/edit
 export const schema: GadgetModel = {
   type: "gadget/model-schema/v1",
+  shopifyModel: "sync",
   fields: {
     createdAt: { type: "DateTime", validations: [{ type: "required" }] },
+    domain: { type: "String", validations: [{ type: "required" }] },
+    errorDetails: { type: "String" },
+    errorMessage: { type: "String" },
+    force: { type: "Boolean", default: false },
     id: { type: "ID", validations: [{ type: "required" }, { type: "unique" }] },
-    roles: { type: "RoleAssignments", default: ["unauthenticated"] },
-    shop: { type: "BelongsTo", relatedModel: "shopifyShop" },
-    shopifySID: { type: "String" },
+    models: { type: "JSON" },
+    shop: { type: "BelongsTo", validations: [{ type: "required" }], relatedModel: "shopifyShop" },
     state: { type: "RecordState", validations: [{ type: "required" }] },
+    syncSince: { type: "DateTime" },
     updatedAt: { type: "DateTime", validations: [{ type: "required" }] },
   },
 };

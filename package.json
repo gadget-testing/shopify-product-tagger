@@ -14,7 +14,13 @@
     "gadget-server": "link:.gadget/server",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.6.1"
+    "react-router-dom": "^6.6.1",
+    "shopify-api-node": "^3.12.6",
+    "@shopify/polaris": "10.45.0",
+    "@shopify/polaris-icons": "6.10.0",
+    "@shopify/app-bridge": "3.5.0",
+    "@shopify/app-bridge-react": "3.5.0",
+    "@gadgetinc/react-shopify-app-bridge": "^0.13.2"
   },
   "devDependencies": {
     "@types/node": "^18.11.9",
