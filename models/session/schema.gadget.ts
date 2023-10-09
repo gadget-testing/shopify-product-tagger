@@ -6,6 +6,8 @@ export const schema: GadgetModel = {
   type: "gadget/model-schema/v1",
   fields: {
     roles: { type: "RoleAssignments", default: ["unauthenticated"] },
+    shop: { type: "BelongsTo", relatedModel: "shopifyShop" },
+    shopifySID: { type: "String" },
     state: { type: "RecordState", validations: [{ type: "required" }] },
   },
 };
