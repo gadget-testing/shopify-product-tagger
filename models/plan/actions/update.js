@@ -5,6 +5,7 @@ import { applyParams, save, ActionOptions, UpdatePlanActionContext } from "gadge
  */
 export async function run({ params, record, logger, api }) {
   applyParams(params, record);
+  preventCrossShopDataAccess(params, record);
   await save(record);
 };
 
