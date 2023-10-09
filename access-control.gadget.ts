@@ -31,6 +31,7 @@ export const accessControl: GadgetAccessControl = {
       error: { "shopify-app-users": true },
     },
     session: { read: {} },
+    allowedTag: { read: {}, create: {}, update: {}, delete: {} },
   },
   actions: { globalShopifySync: {} },
 };

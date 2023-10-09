@@ -14,9 +14,14 @@ export async function run({ params, record, logger, api }) {
  */
 export async function onSuccess({ params, record, logger, api, connections }) {
   if (record.changed('body')) {
-    const newTags = record.body.split(" ").slice(0, 10);
-    logger.info({ newTags, productId: params.id }, "setting new product tags");
-    await connections.shopify.current.product.update(params.id, { tags: newTags })
+    let newTags = [...new Set(record.body.match(/\w+(?:'\w+)*/g))]
+    const allowedTags = (await api.allowedTag.findMany()).map(record => record.tag)
+    const finalTags = newTags.filter(tag => allowedTags.includes(tag))
+    
+    logger.info({ newTags, allowedTags, finalTags }, "applying new tags")
+
+    const shopify = connections.shopify.current;
+    await shopify.product.update(record.id, { tags: finalTags.join(',') });
   }
 };
 
