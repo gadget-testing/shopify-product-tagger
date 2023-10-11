@@ -5,7 +5,7 @@ import type { GadgetModel } from "gadget-server";
 export const schema: GadgetModel = {
   type: "gadget/model-schema/v1",
   fields: {
-    roles: { type: "RoleAssignments", default: ["unauthenticated"] },
-    state: { type: "RecordState", validations: [{ type: "required" }] },
+    name: { type: "String", validations: [{ type: "required" }] },
+    description: { type: "RichText", validations: [{ type: "required" }] },
   },
 };
