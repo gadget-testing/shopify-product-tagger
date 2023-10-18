@@ -5,7 +5,9 @@ import type { GadgetModel } from "gadget-server";
 export const schema: GadgetModel = {
   type: "gadget/model-schema/v1",
   shopifyModel: "product",
-  shopifyFields: [
+  dbKey: g2451,
+  shopifyFields: {
+    body: { dbKey: "j4513" },
     "body", 
     "handle", 
     "productCategory", 
@@ -20,7 +22,7 @@ export const schema: GadgetModel = {
     "templateSuffix", 
     "title", 
     "vendor"
-  ],
+  },
   fields: {
   },
 };
