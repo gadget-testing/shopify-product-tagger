@@ -5,7 +5,7 @@ import type { GadgetModel } from "gadget-server";
 export const schema: GadgetModel = {
   type: "gadget/model-schema/v1",
   fields: {
-    name: { type: "String", validations: [{ type: "required" }] },
+    name: { type: "String", validations: [{ type: "required" }], dbKry: "jhftr" },
     description: { type: "RichText", validations: [{ type: "required" }] },
     shop: { type: "BelongsTo", relatedModel: "shopifyShop" },
   },
