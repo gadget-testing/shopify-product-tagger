@@ -20,6 +20,7 @@ export async function onSuccess({ params, record, logger, api }) {
 export const options = {
   actionType: "create",
   triggers: {
-    shopifyWebhooks: true
+    shopifyWebhooks: true,
+    generatedApiEndpoint: false,
   }
 };
