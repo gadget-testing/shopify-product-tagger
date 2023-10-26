@@ -1,13 +1,13 @@
 import type { GadgetModel } from "gadget-server";
 
-// This metadata describes a model's schema
 // View and edit your model in the Gadget editor at https://myapp.gadget.dev/edit
 export const schema: GadgetModel = {
-  type: "gadget/model-schema/v1",
+  dbTableId: "ss-aaaa",
   fields: {
-    roles: { type: "RoleAssignments", default: ["unauthenticated"] },
-    shop: { type: "BelongsTo", relatedModel: "shopifyShop" },
+    roles: { type: "RoleAssignments", default: ["unauthenticated"], dbFieldId: "ss-vava" },
+    shop: { type: "BelongsTo", relatedModel: "shopifyShop", dbFieldId: "ss-addd" },
     shopifySID: { type: "String" },
-    state: { type: "RecordState", validations: [{ type: "required" }] },
+    state: { type: "RecordState", validations: [{ type: "required" }], dbFieldId: "ss-ewef"  },
   },
 };
+
