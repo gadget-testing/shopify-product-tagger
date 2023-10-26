@@ -24,6 +24,7 @@ export async function onSuccess({ params, record, logger, api, connections }) {
 export const options = {
   actionType: "update",
   triggers: {
-    shopifyWebhooks: true
+    shopifyWebhooks: true,
+    generatedApiEndpoint: false,
   }
 };
