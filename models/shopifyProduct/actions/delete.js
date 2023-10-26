@@ -19,6 +19,7 @@ export async function onSuccess({ params, record, logger, api }) {
 export const options = {
   actionType: "delete",
   triggers: {
-    shopifyWebhooks: true
+    shopifyWebhooks: true,
+    generatedApiEndpoint: false,
   }
 };
